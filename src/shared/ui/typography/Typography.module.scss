@@ -1,0 +1,65 @@
+.typography {
+  font-family: var(--font-family-primary), serif;
+  color: var(--color-light-100);
+
+  &H1,
+  &H2,
+  &H3,
+  &H4,
+  &Subtitle1,
+  &Subtitle2,
+  &Overline {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &Body1,
+  &Body2,
+  &Caption,
+  &Link1,
+  &Link2 {
+    font-weight: var(--font-weight-regular);
+  }
+
+  &H1 {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-l); // 36px/26px = 1.38
+  }
+
+  &H2 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-l); // 36px/20px = 1.8
+  }
+
+  &H3 {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-m); // 24px/18px = 1.33
+  }
+
+  &H4,
+  &Body1,
+  &Subtitle1 {
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m); // 24px/16px = 1.5
+  }
+
+  &Body2,
+  &Subtitle2,
+  &Link1 {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-m); // 24px/14px = 1.71
+  }
+
+  &Caption,
+  &Overline,
+  &Link2 {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-s); // 16px/12px = 13.33
+  }
+
+  &Link1,
+  &Link2 {
+    color: var(--color-info-500);
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+  }
+}
