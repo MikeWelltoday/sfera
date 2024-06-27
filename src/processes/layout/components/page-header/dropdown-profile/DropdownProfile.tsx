@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import { Dropdown, HeaderAvatar, Icon, Typography } from '@/shared'
 
@@ -26,7 +25,7 @@ export const DropdownProfile = ({
     <Dropdown.Root
       onOpenChange={() => setIsOpen(!isOpen)}
       open={isOpen}
-      style={{ height: '36px', width: '36px' }}
+      style={{ height: '50px', width: '50px' }}
       trigger={<HeaderAvatar name={name} photo={photo} photoDescription={photoDescription} />}
     >
       <div className={s.profileItem}>
@@ -38,17 +37,17 @@ export const DropdownProfile = ({
       </div>
       <Dropdown.Separator />
       <Dropdown.Item>
-        <Link className={s.iconTextLink} onClick={() => setIsOpen(false)} to={'#'}>
+        <div className={s.iconTextLink} onClick={() => setIsOpen(false)}>
           <Icon iconId={'personOutline'} />
           <Typography.Caption>My profile</Typography.Caption>
-        </Link>
+        </div>
       </Dropdown.Item>
       <Dropdown.Separator />
       <Dropdown.Item onClick={logout}>
-        <Link className={s.iconTextLink} to={'#'}>
+        <div className={s.iconTextLink}>
           <Icon iconId={'logOut'} />
           <Typography.Caption>Sign out</Typography.Caption>
-        </Link>
+        </div>
       </Dropdown.Item>
     </Dropdown.Root>
   )

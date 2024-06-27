@@ -19,15 +19,15 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
   return (
     <header ref={ref}>
       <div className={s.wrapper}>
-        <Link to={'#'}>
+        <div>
           <img alt={'Project Picture'} className={s.projectPicture} src={logo} />
-        </Link>
+        </div>
 
         {decider ? (
           <div className={s.profileInfo}>
-            <Link to={'#'}>
+            <div>
               <Typography.Subtitle1>Profile Name</Typography.Subtitle1>
-            </Link>
+            </div>
             <DropdownProfile
               email={'user@yandex.com'}
               logout={logoutHandler}
@@ -37,7 +37,7 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
             />
           </div>
         ) : (
-          <Button as={Link} to={'#'} variant={'primary'}>
+          <Button as={Link} to={'/decks'} variant={'primary'}>
             Sign In
           </Button>
         )}
