@@ -2,6 +2,7 @@ import { PayloadAction, isFulfilled, isPending } from '@reduxjs/toolkit'
 
 import { createAppSlice } from '../../tools/createAppSlice'
 import { SlicesNames } from '../../tools/slicesNames'
+import { authActions } from '../auth/authSlice'
 
 export type AppState = ReturnType<typeof slice.getInitialState>
 
@@ -11,13 +12,13 @@ const slice = createAppSlice({
   extraReducers: builder => {
     builder
       .addMatcher(isPending, (state, action: any) => {
-        if (action.type === 'auth me') {
+        if (action.type === authActions.me.pending.type) {
           return
         }
         state.status = 'loading'
       })
       .addMatcher(isFulfilled, (state, action: any) => {
-        if (action.type === 'auth me') {
+        if (action.type === authActions.me.pending.type) {
           return
         }
         state.status = 'idle'
