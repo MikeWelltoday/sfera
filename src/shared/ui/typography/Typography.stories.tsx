@@ -10,6 +10,9 @@ function WrapperComponent({ children }: { children: ReactNode }) {
 
 const meta: Meta<typeof WrapperComponent> = {
   component: WrapperComponent,
+  parameters: {
+    layout: 'centered',
+  },
   title: '🟢UI/Typography',
 }
 
