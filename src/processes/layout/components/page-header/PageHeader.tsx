@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Button, Typography } from '@/shared'
+import { Button, PATH, Typography } from '@/shared'
 
 import s from './PageHeader.module.scss'
 
@@ -19,25 +19,30 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
   return (
     <header ref={ref}>
       <div className={s.wrapper}>
-        <div>
-          <img alt={'Project Picture'} className={s.projectPicture} src={logo} />
-        </div>
+        <Link to={PATH.MAINPAGE}>
+          <img alt={'Sphere Picture Logo'} className={s.projectPicture} src={logo} />
+        </Link>
 
-        <Button as={'a'} classNameText={s.buttonText} variant={'secondary'}>
+        <Button as={Link} classNameText={s.buttonText} to={PATH.MAINPAGE} variant={'secondary'}>
           ГЛАВНАЯ
         </Button>
-        <Button as={'a'} classNameText={s.buttonText} variant={'secondary'}>
+        <Button
+          as={Link}
+          classNameText={s.buttonText}
+          to={PATH.SHOPDECISIONS}
+          variant={'secondary'}
+        >
           Магазин 3D решений
         </Button>
-        <Button as={'a'} classNameText={s.buttonText} variant={'secondary'}>
+        <Button as={Link} classNameText={s.buttonText} to={PATH.CONTACTS} variant={'secondary'}>
           Контакты
         </Button>
 
         {decider ? (
           <div className={s.profileInfo}>
-            <div>
+            <Link to={PATH.PROFILE}>
               <Typography.Subtitle1>Profile Name</Typography.Subtitle1>
-            </div>
+            </Link>
             <DropdownProfile
               email={'user@yandex.com'}
               logout={logoutHandler}
@@ -47,7 +52,7 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
             />
           </div>
         ) : (
-          <Button as={Link} to={'/decks'} variant={'primary'}>
+          <Button as={Link} to={PATH.SIGNIN} variant={'primary'}>
             Sign In
           </Button>
         )}

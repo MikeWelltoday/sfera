@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import { Dropdown, HeaderAvatar, Icon, Typography } from '@/shared'
+import { Dropdown, HeaderAvatar, Icon, PATH, Typography } from '@/shared'
 
 import s from './DropdownProfile.module.scss'
 
@@ -37,17 +38,17 @@ export const DropdownProfile = ({
       </div>
       <Dropdown.Separator />
       <Dropdown.Item>
-        <div className={s.iconTextLink} onClick={() => setIsOpen(false)}>
+        <Link className={s.iconTextLink} onClick={() => setIsOpen(false)} to={PATH.PROFILE}>
           <Icon iconId={'personOutline'} />
           <Typography.Caption>My profile</Typography.Caption>
-        </div>
+        </Link>
       </Dropdown.Item>
       <Dropdown.Separator />
       <Dropdown.Item onClick={logout}>
-        <div className={s.iconTextLink}>
+        <Link className={s.iconTextLink} to={PATH.SIGNIN}>
           <Icon iconId={'logOut'} />
           <Typography.Caption>Sign out</Typography.Caption>
-        </div>
+        </Link>
       </Dropdown.Item>
     </Dropdown.Root>
   )

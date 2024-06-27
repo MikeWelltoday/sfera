@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -12,7 +13,9 @@ export const Layout = () => {
   return (
     <div className={s.layout}>
       <PageHeader decider={decider} />
-      <main> Main </main>
+      <main>
+        <Outlet />
+      </main>
       <ToastContainer
         autoClose={5000}
         closeOnClick

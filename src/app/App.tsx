@@ -1,5 +1,5 @@
-import { Layout } from '@/processes/layout/Layout'
+import { Router } from '@/processes/routes'
 
 export function App() {
-  return <Layout />
+  return <Router />
 }
