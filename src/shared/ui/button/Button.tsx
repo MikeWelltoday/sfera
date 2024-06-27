@@ -7,6 +7,7 @@ import s from './Button.module.scss'
 
 type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
+  classNameText?: string
   fullWidth?: boolean
   variant?: 'link' | 'primary' | 'secondary'
 } & ComponentPropsWithoutRef<T>
@@ -16,6 +17,7 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
     as: Component = 'button',
     children,
     className,
+    classNameText,
     fullWidth,
     variant = 'primary',
     ...rest
@@ -26,7 +28,7 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
       className={clsx(s.button, s[variant], fullWidth && s.fullWidth, className)}
       {...rest}
     >
-      <Typography.Subtitle2>{children}</Typography.Subtitle2>
+      <Typography.Subtitle2 className={classNameText}>{children}</Typography.Subtitle2>
     </Component>
   )
 }

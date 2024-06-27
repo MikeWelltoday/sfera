@@ -23,6 +23,16 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
           <img alt={'Project Picture'} className={s.projectPicture} src={logo} />
         </div>
 
+        <Button as={'a'} classNameText={s.buttonText} variant={'link'}>
+          ГЛАВНАЯ
+        </Button>
+        <Button as={'a'} classNameText={s.buttonText} variant={'link'}>
+          Магазин 3D решений
+        </Button>
+        <Button as={'a'} classNameText={s.buttonText} variant={'link'}>
+          Контакты
+        </Button>
+
         {decider ? (
           <div className={s.profileInfo}>
             <div>
