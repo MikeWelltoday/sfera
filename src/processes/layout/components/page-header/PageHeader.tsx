@@ -23,13 +23,13 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
           <img alt={'Project Picture'} className={s.projectPicture} src={logo} />
         </div>
 
-        <Button as={'a'} classNameText={s.buttonText} variant={'link'}>
+        <Button as={'a'} classNameText={s.buttonText} variant={'secondary'}>
           ГЛАВНАЯ
         </Button>
-        <Button as={'a'} classNameText={s.buttonText} variant={'link'}>
+        <Button as={'a'} classNameText={s.buttonText} variant={'secondary'}>
           Магазин 3D решений
         </Button>
-        <Button as={'a'} classNameText={s.buttonText} variant={'link'}>
+        <Button as={'a'} classNameText={s.buttonText} variant={'secondary'}>
           Контакты
         </Button>
 
