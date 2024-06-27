@@ -15,7 +15,7 @@ export function App() {
   }
 
   function loginFalse() {
-    dispatch(authActions.login({ email: 'admin@yandex.ru', password: 'admin', rememberMe: false }))
+    dispatch(authActions.login({ email: 'a', password: 'a', rememberMe: false }))
   }
 
   function meHandler() {
@@ -33,13 +33,30 @@ export function App() {
       }}
     >
       <ul>
-        <li>isInitialized: {isInitialized}</li>
+        <li>isInitialized: {isInitialized.toString()}</li>
         <li>appStatus: {appStatus}</li>
-        <li>me: {me}</li>
+        <li>me: {me.toString()}</li>
       </ul>
-      <button onClick={loginTrue}>login - true</button>
-      <button onClick={loginFalse}>login - false</button>
-      <button onClick={meHandler}>me</button>
+      <p>--------------------------</p>
+      <br />
+      <button
+        onClick={loginTrue}
+        style={{ background: 'gray', display: 'block', marginRight: '50px' }}
+      >
+        login - true
+      </button>
+      <button
+        onClick={loginFalse}
+        style={{ background: 'gray', display: 'block', marginRight: '50px' }}
+      >
+        login - false
+      </button>
+      <button
+        onClick={meHandler}
+        style={{ background: 'gray', display: 'block', marginRight: '50px' }}
+      >
+        me
+      </button>
     </div>
   )
 }

@@ -22,6 +22,8 @@ const slice = createAppSlice({
       >(async ({ email, password, rememberMe }, thunkAPI) => {
         const res = await authApi.login({ email, password, rememberMe })
 
+        console.log(res)
+
         if (res) {
           localStorage.setItem('accessToken', 'accessToken')
           localStorage.setItem('freshToken', 'freshToken')
