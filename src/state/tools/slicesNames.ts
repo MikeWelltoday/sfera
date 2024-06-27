@@ -1,3 +1,4 @@
 export const SlicesNames = {
-  appSlice: 'app-slice',
+  appSlice: 'appSice',
+  authSlice: 'authSlice',
 } as const
