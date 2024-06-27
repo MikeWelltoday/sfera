@@ -14,3 +14,9 @@ test('setStatus', () => {
 
   expect(endState.status).toBe('loading')
 })
+
+test('setInitialized', () => {
+  const endState = appSlice(startState, appActions.setInitialization({ isInitialized: true }))
+
+  expect(endState.isInitialized).toBe(true)
+})
