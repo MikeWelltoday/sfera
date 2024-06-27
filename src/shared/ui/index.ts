@@ -1,3 +1,5 @@
 export { Button } from './button/Button'
+export { Dropdown } from './dropdown/Dropdown'
+export { HeaderAvatar } from './header-avatar/HeaderAvatar'
 export { Icon } from './icon/Icon'
 export { Typography } from './typography/Typography'

@@ -1,0 +1,46 @@
+header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: var(--header-height);
+
+  background-color: var(--color-dark-700);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: var(--screen-max-width);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.projectPicture {
+  height: calc(var(--header-height) - 10px);
+  object-fit: cover;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+
+  & p {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 6px;
+
+    &:hover {
+      color: var(--color-accent-700);
+    }
+  }
+}
