@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { MainPage } from '@/pages/mainPage/MainPage'
+import { ProfilePage } from '@/pages/profile/Profile.page'
 import { PATH } from '@/shared'
 
 import { Layout } from './layout/Layout'
@@ -54,7 +55,7 @@ const privateRoutes: RouteObject[] = [
     path: PATH.CONTACTS,
   },
   {
-    element: <div>Profile Page</div>,
+    element: <ProfilePage />,
     path: PATH.PROFILE,
   },
   {

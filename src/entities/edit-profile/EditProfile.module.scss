@@ -1,0 +1,46 @@
+.editProfile {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  width: 420px;
+  padding: 33px 0;
+
+  h1 {
+    margin-bottom: 27px;
+  }
+}
+
+.avatarContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+
+  //img {
+  //  aspect-ratio: 1;
+  //  width: 96px;
+  //  object-fit: cover;
+  //  border-radius: 50%;
+  //}
+
+  button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 24px;
+    height: 24px;
+    padding-top: 2px;
+
+    background-color: var(--color-dark-300);
+    border-radius: 4px;
+
+    &:hover {
+      color: var(--color-accent-500);
+    }
+  }
+}
+
+.avatarText {
+  font-size: 50px;
+}
