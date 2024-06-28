@@ -9,7 +9,9 @@ export const SignInPage = () => {
 
   return (
     <Page mt={"100px"}>
-      <SignIn onSubmit  =  {onSubmitHandler} />
+      <SignIn onSubmit={onSubmitHandler} />
     </Page>
   )
 }
+
+

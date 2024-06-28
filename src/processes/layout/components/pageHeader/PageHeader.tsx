@@ -1,13 +1,13 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 
+import { DropdownProfile } from '@/processes/layout/components/pageHeader/dropdownProfile/DropdownProfile'
 import { Button, PATH, Typography } from '@/shared'
 
 import s from './PageHeader.module.scss'
 
 import logo from './Logo.png'
 import avatar from './avatar.png'
-import { DropdownProfile } from './dropdown-profile/DropdownProfile'
 
 type PageHeaderProps = { decider: boolean } & ComponentPropsWithoutRef<'header'>
 

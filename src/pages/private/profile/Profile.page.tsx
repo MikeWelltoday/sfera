@@ -1,4 +1,4 @@
-import { EditProfile } from '@/entities/edit-profile/EditProfile'
+import { EditProfile } from '@/entities'
 import { BackToDecks } from '@/pages/private/_components/back-to-decks/BackToDecks'
 import { Page } from '@/shared'
 

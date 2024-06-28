@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import { Error404 } from '@/pages'
+import { Error404, SignInPage, SignUpPage } from '@/pages'
 import { MainPage } from '@/pages/private/main/Main.page'
 import { ProfilePage } from '@/pages/private/profile/Profile.page'
 import { PATH } from '@/shared'
@@ -17,11 +17,11 @@ import { Layout } from './layout/Layout'
 
 const publicRoutes: RouteObject[] = [
   {
-    element: <div>Sign - in</div>,
+    element: <SignInPage />,
     path: PATH.SIGNIN,
   },
   {
-    element: <div>Sign - up</div>,
+    element: <SignUpPage />,
     path: PATH.SIGNUP,
   },
 ]
@@ -94,7 +94,7 @@ export function Router() {
 }
 
 //========================================================================================
-const isAuthenticated = true
+const isAuthenticated = false
 
 function PrivateRoutes() {
   return isAuthenticated ? <Outlet /> : <Navigate to={PATH.SIGNIN} />

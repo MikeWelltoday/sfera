@@ -1,1 +1,1 @@
-export { ModalFooter } from './modal-footer/ModalFooter'
+export { ModalFooter } from './modalFooter/ModalFooter'

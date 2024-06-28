@@ -7,3 +7,4 @@ export { ProfilePage } from './private/profile/Profile.page'
 
 //============================== [ public ] ===================================
 export { SignInPage } from './public/signIn/SignIn.page'
+export { SignUpPage } from './public/signUp/SignUp.page'

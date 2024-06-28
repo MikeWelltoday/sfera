@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { SignUpFormValues } from '@/entities'
-import { StorybookDecorator } from '@/services/StorybookDecorator'
+import { StorybookDecorator } from '@/state/StorybookDecorator'
 
 import { SignUp } from './SignUp'
 
@@ -19,6 +19,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof SignUp>
 
+//=============================================================================
 export const SingUpStory: Story = {
   args: {
     onSubmit: (data: SignUpFormValues) => console.log(data),
