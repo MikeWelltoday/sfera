@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
+import { MainPage } from '@/pages/mainPage/MainPage'
 import { PATH } from '@/shared'
 
 import { Layout } from './layout/Layout'
@@ -25,8 +26,20 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    element: <div>Main Page</div>,
+    element: <MainPage />,
     path: PATH.MAINPAGE,
+  },
+  {
+    element: <div>About Us</div>,
+    path: PATH.ABOUTUS,
+  },
+  {
+    element: <div>Customers Registration</div>,
+    path: PATH.CUSTOMERSREGISTRATION,
+  },
+  {
+    element: <div>Short Inst</div>,
+    path: PATH.SHORTINSTRUCTIONS,
   },
   {
     element: <div>Contacts</div>,

@@ -1,0 +1,31 @@
+.aboutUs {
+  background-color: #073b03;
+  width: 50%;
+
+  &:hover {
+    background-color: #136b0b;
+  }
+}
+
+.shortInstruction {
+  background-color: #098f80;
+  width: 50%;
+
+  &:hover {
+    background-color: #0ad2c1;
+  }
+}
+
+.customersRegistration {
+  background-color: #750cb2;
+  width: 50%;
+
+  &:hover {
+    background-color: #b10cde;
+  }
+}
+
+.buttonText {
+  font-size: var(--font-size-xl);
+  text-transform: uppercase;
+}
