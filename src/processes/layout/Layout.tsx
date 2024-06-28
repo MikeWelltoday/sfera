@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import s from './Layout.module.scss'
 
-import { PageHeader } from './components'
+import { PageHeader } from './_components'
 
 export const Layout = () => {
   const decider = true

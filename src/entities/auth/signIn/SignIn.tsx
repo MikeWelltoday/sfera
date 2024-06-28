@@ -50,7 +50,7 @@ export const SignIn = ({ onSubmit }: SingInProps) => {
             Remember me
           </ControlledCheckbox>
 
-          <Typography.Body2 as={Link} className={s.forgotPasswordBox} to={'/recover-password'}>
+          <Typography.Body2 as={Link} className={s.forgotPasswordBox} to={PATH.FORGOTPASSWORD}>
             Forgot Password?
           </Typography.Body2>
         </div>

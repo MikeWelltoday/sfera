@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { FieldValues } from 'react-hook-form'
 
-import { StorybookDecorator } from '@/services/StorybookDecorator'
+import { StorybookDecorator } from '@/state/StorybookDecorator'
 
 import { ForgotPassword } from './ForgotPassword'
 
@@ -28,6 +28,7 @@ const Wrapper = () => {
   return <ForgotPassword onSubmit={onSubmit} />
 }
 
+// ==========================================================================
 export const ForgotPasswordStory: Story = {
   render: () => <Wrapper />,
 }

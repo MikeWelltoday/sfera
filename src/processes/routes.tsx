@@ -6,9 +6,14 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import { Error404, SignInPage, SignUpPage } from '@/pages'
-import { MainPage } from '@/pages/private/main/Main.page'
-import { ProfilePage } from '@/pages/private/profile/Profile.page'
+import {
+  Error404,
+  ForgotPasswordPage,
+  MainPage,
+  ProfilePage,
+  SignInPage,
+  SignUpPage,
+} from '@/pages'
 import { PATH } from '@/shared'
 
 import { Layout } from './layout/Layout'
@@ -24,13 +29,17 @@ const publicRoutes: RouteObject[] = [
     element: <SignUpPage />,
     path: PATH.SIGNUP,
   },
-]
-
-const privateRoutes: RouteObject[] = [
+  {
+    element: <ForgotPasswordPage />,
+    path: PATH.FORGOTPASSWORD,
+  },
   {
     element: <MainPage />,
     path: PATH.MAINPAGE,
   },
+]
+
+const privateRoutes: RouteObject[] = [
   {
     element: <div>About Us</div>,
     path: PATH.ABOUTUS,

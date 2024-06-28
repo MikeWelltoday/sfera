@@ -2,6 +2,7 @@
 export * from './_components'
 
 // ============================== [ auth ] ====================================
+export { ForgotPassword } from './auth/forgotPassword/ForgotPassword'
 export { SignIn } from './auth/signIn/SignIn'
 export { SignUp } from './auth/signUp/SignUp'
 
