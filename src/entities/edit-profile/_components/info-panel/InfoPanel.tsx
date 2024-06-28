@@ -1,4 +1,6 @@
-import { Button, Icon, IconButton, Typography } from '@/shared'
+import { Link } from 'react-router-dom'
+
+import { Button, Icon, IconButton, PATH, Typography } from '@/shared'
 
 import s from './InfoPanel.module.scss'
 
@@ -17,7 +19,7 @@ export const InfoPanel = ({ editName, email, logout, name }: InfoPanelProps) => 
         <IconButton className={s.editBtn} iconId={'editOutline'} onClick={editName} />
       </div>
       <Typography.Body2 style={{ color: 'var(--color-dark-100)' }}>{email}</Typography.Body2>
-      <Button onClick={logout} variant={'secondary'}>
+      <Button as={Link} onClick={logout} to={PATH.SIGNIN} variant={'secondary'}>
         <Icon iconId={'logOut'} />
         Logout
       </Button>

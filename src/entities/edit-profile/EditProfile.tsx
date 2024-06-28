@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { ChangeEvent, useRef, useState } from 'react'
 
+import { EditProfileFormValues } from '@/entities/validationSchemes'
 import { HeaderAvatar, IconButton, Typography } from '@/shared'
 import { Card } from '@/shared/ui/card/Card'
 
@@ -11,8 +12,31 @@ import avatar from './avatar.png'
 export const EditProfile = () => {
   const [isEditName, setIsEditName] = useState(false)
 
-  const updateProfile = (data: any) => {
+  const updateProfile = (data: EditProfileFormValues) => {
+    setIsEditName(!isEditName)
     console.log(data)
+  }
+
+  // Добавили картинку в ref
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  // Click по кнопке-инпуту аватара
+  function handleButtonClick() {
+    if (fileInputRef.current !== null) {
+      fileInputRef.current.click()
+    }
+  }
+
+  // Получили картинку, которую загрузил пользователь
+  async function imageChangeHandler(event: ChangeEvent<HTMLInputElement>) {
+    if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files[0])
+
+      //** to clean ref to load img with the same name once more  */
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    }
   }
 
   return (
@@ -27,8 +51,14 @@ export const EditProfile = () => {
           style={{ height: '100px', width: '100px' }}
           textStyle={{ fontSize: '70px' }}
         />
-        {!isEditName && <IconButton iconId={'editOutline'} onClick={() => {}} />}
-        <input accept={'image/*'} onChange={() => {}} style={{ display: 'none' }} type={'file'} />
+        {!isEditName && <IconButton iconId={'editOutline'} onClick={handleButtonClick} />}
+        <input
+          accept={'image/*'}
+          onChange={imageChangeHandler}
+          ref={fileInputRef}
+          style={{ display: 'none' }}
+          type={'file'}
+        />
       </div>
 
       {!isEditName ? (
