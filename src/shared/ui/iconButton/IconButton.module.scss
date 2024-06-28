@@ -1,0 +1,14 @@
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: var(--color-accent-500);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--color-dark-300);
+  }
+}

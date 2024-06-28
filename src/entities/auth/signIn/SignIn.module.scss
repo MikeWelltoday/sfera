@@ -1,0 +1,29 @@
+.signIn {
+  display: flex;
+  flex-flow: nowrap column;
+
+  width: 420px;
+  margin: 0 auto;
+  padding: 33px 36px 25px;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+
+  margin-bottom: 60px;
+
+  & a {
+    align-self: flex-end;
+  }
+}
