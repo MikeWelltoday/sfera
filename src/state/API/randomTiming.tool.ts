@@ -1,3 +1,3 @@
 export function randomTiming() {
-  return (Math.random() * (2 - 0.1) + 0.1) * 1000
+  return (Math.random() + 1) * 1000
 }

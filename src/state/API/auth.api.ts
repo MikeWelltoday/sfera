@@ -1,9 +1,11 @@
+import { Me } from '../slices/auth/authSlice.types'
 import { randomTiming } from './randomTiming.tool'
 
 const me = new Promise(res => {
   setTimeout(() => {
-    res(true)
-  }, randomTiming())
+    // TODO добавить сюда аватар => можно положить файл в эту папку
+    res({ avatar: 'avatar', email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
+  }, randomTiming() * 2)
 })
 
 function login({ email, password }: { email: string; password: string; rememberMe?: boolean }) {

@@ -35,7 +35,9 @@ export function App() {
       <ul>
         <li>isInitialized: {isInitialized.toString()}</li>
         <li>appStatus: {appStatus}</li>
-        <li>me: {me.toString()}</li>
+        <li>
+          me: {me.name} | {me.email} | {me.id}
+        </li>
       </ul>
       <p>--------------------------</p>
       <br />
