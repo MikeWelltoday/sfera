@@ -1,3 +1,3 @@
 export { ControlledCheckbox } from './ControlledCheckbox'
 export { TextField } from './TextField'
-export { PasswordInput } from './password-input/PasswordInput'
+export { PasswordInput } from '@/entities/_components/passwordInput/PasswordInput'

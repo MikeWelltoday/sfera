@@ -6,8 +6,9 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import { MainPage } from '@/pages/mainPage/MainPage'
-import { ProfilePage } from '@/pages/profile/Profile.page'
+import { Error404 } from '@/pages'
+import { MainPage } from '@/pages/private/main/Main.page'
+import { ProfilePage } from '@/pages/private/profile/Profile.page'
 import { PATH } from '@/shared'
 
 import { Layout } from './layout/Layout'
@@ -84,7 +85,7 @@ export const routes = createBrowserRouter([
       },
     ],
     element: <Layout />,
-    errorElement: <div>Error 404</div>,
+    errorElement: <Error404 />,
   },
 ])
 

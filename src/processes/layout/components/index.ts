@@ -1,2 +1,2 @@
-export { InitLoader } from './InitLoader/InitLoader'
-export { PageHeader } from './page-header/PageHeader'
+export { InitLoader } from './initLoader/InitLoader'
+export { PageHeader } from './pageHeader/PageHeader'

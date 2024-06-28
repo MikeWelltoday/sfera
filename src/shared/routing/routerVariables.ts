@@ -10,6 +10,6 @@ export const PATH = {
   SHOPDECISIONS: '/shop-decisions',
   SHORTCUSTOMERSINSTRUCTION: '/short-customers-instruction',
   SHORTEXECUTORSINSTRUCTION: '/short-executors-instruction',
-  SIGNIN: '/sign-in',
+  SIGNIN: '/signIn',
   SIGNUP: '/sign-up',
 } as const

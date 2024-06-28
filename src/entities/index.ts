@@ -1,7 +1,13 @@
-// ============================== [ profile ] ===========================================
-export { EditProfile } from './edit-profile/EditProfile'
+// ============================== [ components ] ==============================
+export * from './_components'
 
-// ============================== [ validation ] ===========================================
+// ============================== [ auth ] ====================================
+export { SignIn } from './auth/signIn/SignIn'
+
+// ============================== [ editProfile ] =============================
+export { EditProfile } from './editProfile/EditProfile'
+
+// ============================== [ validation ] ==============================
 export type {
   CardFormValues,
   CreateNewPasswordFormValues,

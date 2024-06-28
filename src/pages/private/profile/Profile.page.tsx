@@ -1,5 +1,5 @@
 import { EditProfile } from '@/entities/edit-profile/EditProfile'
-import { BackToDecks } from '@/pages/_components/back-to-decks/BackToDecks'
+import { BackToDecks } from '@/pages/private/_components/back-to-decks/BackToDecks'
 import { Page } from '@/shared'
 
 import s from './Profile.module.scss'

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { Button, PATH, Page } from '@/shared'
 
-import s from './MainPage.module.scss'
+import s from './Main.module.scss'
 
 type MainButtonsData = {
   Children: ReactNode
