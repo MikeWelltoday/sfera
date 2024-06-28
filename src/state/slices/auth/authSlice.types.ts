@@ -4,3 +4,8 @@ export type Me = {
   id: string
   name: string
 }
+
+export type LoginArgs = {
+  email: string
+  password: string
+}

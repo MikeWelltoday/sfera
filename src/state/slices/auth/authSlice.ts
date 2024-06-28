@@ -3,7 +3,7 @@ import { AppDispatch } from '../../store'
 import { createAppSlice } from '../../tools/createAppSlice'
 import { SlicesNames } from '../../tools/slicesNames'
 import { appActions } from '../app/appSlice'
-import { Me } from './authSlice.types'
+import { LoginArgs, Me } from './authSlice.types'
 
 export type AuthSlice = ReturnType<typeof slice.getInitialState>
 
@@ -61,6 +61,44 @@ const slice = createAppSlice({
         {
           fulfilled: (state, action) => {
             state.me = action.payload.me
+          },
+        }
+      ),
+
+      register: creators.asyncThunk<undefined, { args: LoginArgs }, { rejectValue: null }>(
+        async ({ args }, thunkAPI) => {
+          try {
+            console.log('🟡 authSlice__register__pending')
+            await authApi.register(args)
+            console.log('🟡 authSlice__register__fulfilled')
+
+            return
+          } catch (error) {
+            console.log('🟡 authSlice__register__rejected')
+
+            return thunkAPI.rejectWithValue(null)
+          }
+        }
+      ),
+
+      update: creators.asyncThunk<{ me: Partial<Me> }, { me: Partial<Me> }, { rejectValue: null }>(
+        async ({ me }, thunkAPI) => {
+          try {
+            console.log('🔵 authSlice__update__pending')
+            await authApi.update(me)
+
+            console.log('🔵 authSlice__update__fulfilled')
+
+            return { me }
+          } catch (error) {
+            console.log('🔵 authSlice__update__rejected')
+
+            return thunkAPI.rejectWithValue(null)
+          }
+        },
+        {
+          fulfilled: (state, action) => {
+            state.me = { ...state.me, ...action.payload.me }
           },
         }
       ),

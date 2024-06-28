@@ -22,6 +22,18 @@ export function App() {
     dispatch(authActions.me())
   }
 
+  function logout() {
+    dispatch(authActions.logout())
+  }
+
+  function profileChange() {
+    dispatch(authActions.update({ me: { email: '💩', name: '💩' } }))
+  }
+
+  function register() {
+    dispatch(authActions.register({ args: { email: 'NEW', password: 'NEW' } }))
+  }
+
   return (
     <div
       style={{
@@ -58,6 +70,24 @@ export function App() {
         style={{ background: 'gray', display: 'block', marginRight: '50px' }}
       >
         me
+      </button>
+      <button
+        onClick={logout}
+        style={{ background: 'gray', display: 'block', marginRight: '50px' }}
+      >
+        logout
+      </button>
+      <button
+        onClick={profileChange}
+        style={{ background: 'gray', display: 'block', marginRight: '50px' }}
+      >
+        profileChange
+      </button>
+      <button
+        onClick={register}
+        style={{ background: 'gray', display: 'block', marginRight: '50px' }}
+      >
+        register
       </button>
     </div>
   )

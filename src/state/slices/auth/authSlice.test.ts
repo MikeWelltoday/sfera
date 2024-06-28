@@ -17,3 +17,16 @@ test('me', () => {
   expect(endState.me).toEqual(meResponse)
   expect(endState.me.name).toBe(meResponse.name)
 })
+
+test('update', () => {
+  const updateInput: Partial<Me> = {
+    email: 'newEmail',
+    name: 'newName',
+  }
+  const action = authActions.update.fulfilled({ me: updateInput }, '', { me: updateInput })
+  const endState = authSlice(startState, action)
+
+  expect(endState.me.email).toBe(updateInput.email)
+  expect(endState.me.name).toBe(updateInput.name)
+  expect(endState.me.id).toBe(startState.me.id)
+})

@@ -1,4 +1,4 @@
-import { Me } from '../slices/auth/authSlice.types'
+import { LoginArgs, Me } from '../slices/auth/authSlice.types'
 import { randomTiming } from './randomTiming.tool'
 
 const me = new Promise(res => {
@@ -20,7 +20,33 @@ function login({ email, password }: { email: string; password: string; rememberM
   })
 }
 
+function update(me: Partial<Me>) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if (me) {
+        res(true)
+      } else {
+        rej(false)
+      }
+    }, randomTiming())
+  })
+}
+
+function register(args: LoginArgs) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if (args) {
+        res(true)
+      } else {
+        rej(false)
+      }
+    }, randomTiming())
+  })
+}
+
 export const authApi = {
   login,
   me,
+  register,
+  update,
 }
