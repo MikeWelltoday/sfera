@@ -10,8 +10,14 @@ beforeEach(() => {
 })
 
 test('me', () => {
-  const meResponse: Me = { avatar: 'avatar', email: 'admin@yandex.ru', id: 'admin', name: 'admin' }
-  const action = authActions.me.fulfilled({ me: meResponse }, '', undefined)
+  const meResponse: Me = {
+    avatar: 'avatar',
+    email: 'admin@yandex.ru',
+    id: 'admin',
+    name: 'admin',
+    status: 'customer',
+  }
+  const action = authActions.me.fulfilled(meResponse, '', undefined)
   const endState = authSlice(startState, action)
 
   expect(endState.me).toEqual(meResponse)
@@ -23,7 +29,7 @@ test('update', () => {
     email: 'newEmail',
     name: 'newName',
   }
-  const action = authActions.update.fulfilled({ me: updateInput }, '', { me: updateInput })
+  const action = authActions.update.fulfilled(updateInput, '', updateInput)
   const endState = authSlice(startState, action)
 
   expect(endState.me.email).toBe(updateInput.email)

@@ -3,7 +3,7 @@ import { AppDispatch } from '../../store'
 import { createAppSlice } from '../../tools/createAppSlice'
 import { SlicesNames } from '../../tools/slicesNames'
 import { appActions } from '../app/appSlice'
-import { LoginArgs, Me } from './authSlice.types'
+import { LoginArgs, Me, RegisterArgs } from './authSlice.types'
 
 export type AuthSlice = ReturnType<typeof slice.getInitialState>
 
@@ -15,24 +15,22 @@ const slice = createAppSlice({
 
   reducers: creators => {
     return {
-      login: creators.asyncThunk<
-        undefined,
-        { email: string; password: string; rememberMe: boolean },
-        { rejectValue: null }
-      >(async ({ email, password, rememberMe }, thunkAPI) => {
-        try {
-          console.log('🟣 authSlice__login__pending')
-          await authApi.login({ email, password, rememberMe })
+      login: creators.asyncThunk<undefined, LoginArgs, { rejectValue: null }>(
+        async (args, thunkAPI) => {
+          try {
+            console.log('🟣 authSlice__login__pending')
+            await authApi.login(args)
 
-          localStorage.setItem('accessToken', 'accessToken')
-          localStorage.setItem('freshToken', 'freshToken')
-          console.log('🟣 authSlice__login__fulfilled')
-        } catch (error) {
-          console.log('🟣 authSlice__login__rejected')
+            localStorage.setItem('accessToken', 'accessToken')
+            localStorage.setItem('freshToken', 'freshToken')
+            console.log('🟣 authSlice__login__fulfilled')
+          } catch (error) {
+            console.log('🟣 authSlice__login__rejected')
 
-          return thunkAPI.rejectWithValue(null)
+            return thunkAPI.rejectWithValue(null)
+          }
         }
-      }),
+      ),
 
       logout: creators.reducer((state, _) => {
         localStorage.removeItem('accessToken')
@@ -40,18 +38,18 @@ const slice = createAppSlice({
         state.me = {} as Me
       }),
 
-      me: creators.asyncThunk<{ me: Me }, undefined, { rejectValue: null }>(
+      me: creators.asyncThunk<Me, undefined, { rejectValue: null }>(
         async (_, thunkAPI) => {
           const dispatch = thunkAPI.dispatch as AppDispatch
 
           try {
             console.log('🟢 authSlice__me__pending')
-            const res = await authApi.me
+            const res = await authApi.me()
 
             console.log('🟢 authSlice__me__fulfilled')
             dispatch(appActions.setInitialization({ isInitialized: true }))
 
-            return { me: res as Me }
+            return res as Me
           } catch (error) {
             console.log('🟢 authSlice__me__rejected')
 
@@ -60,13 +58,13 @@ const slice = createAppSlice({
         },
         {
           fulfilled: (state, action) => {
-            state.me = action.payload.me
+            state.me = action.payload
           },
         }
       ),
 
-      register: creators.asyncThunk<undefined, { args: LoginArgs }, { rejectValue: null }>(
-        async ({ args }, thunkAPI) => {
+      register: creators.asyncThunk<undefined, RegisterArgs, { rejectValue: null }>(
+        async (args, thunkAPI) => {
           try {
             console.log('🟡 authSlice__register__pending')
             await authApi.register(args)
@@ -81,15 +79,15 @@ const slice = createAppSlice({
         }
       ),
 
-      update: creators.asyncThunk<{ me: Partial<Me> }, { me: Partial<Me> }, { rejectValue: null }>(
-        async ({ me }, thunkAPI) => {
+      update: creators.asyncThunk<Partial<Me>, Partial<Me>, { rejectValue: null }>(
+        async (args, thunkAPI) => {
           try {
             console.log('🔵 authSlice__update__pending')
-            await authApi.update(me)
+            await authApi.update(args)
 
             console.log('🔵 authSlice__update__fulfilled')
 
-            return { me }
+            return args
           } catch (error) {
             console.log('🔵 authSlice__update__rejected')
 
@@ -98,7 +96,7 @@ const slice = createAppSlice({
         },
         {
           fulfilled: (state, action) => {
-            state.me = { ...state.me, ...action.payload.me }
+            state.me = { ...state.me, ...action.payload }
           },
         }
       ),

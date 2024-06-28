@@ -1,17 +1,19 @@
-import { LoginArgs, Me } from '../slices/auth/authSlice.types'
+import { LoginArgs, Me, RegisterArgs } from '../slices/auth/authSlice.types'
 import { randomTiming } from './randomTiming.tool'
 
-const me = new Promise(res => {
-  setTimeout(() => {
-    // TODO добавить сюда аватар => можно положить файл в эту папку
-    res({ avatar: 'avatar', email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
-  }, randomTiming() * 2)
-})
+function me() {
+  return new Promise(res => {
+    setTimeout(() => {
+      // TODO добавить сюда аватар => можно положить файл в эту папку
+      res({ avatar: 'avatar', email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
+    }, randomTiming() * 2)
+  })
+}
 
-function login({ email, password }: { email: string; password: string; rememberMe?: boolean }) {
+function login(args: LoginArgs) {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      if (email === 'admin@yandex.ru' && password === 'admin') {
+      if (args.email === 'admin@yandex.ru' && args.password === 'admin') {
         res(true)
       } else {
         rej(false)
@@ -32,7 +34,7 @@ function update(me: Partial<Me>) {
   })
 }
 
-function register(args: LoginArgs) {
+function register(args: RegisterArgs) {
   return new Promise((res, rej) => {
     setTimeout(() => {
       if (args) {
