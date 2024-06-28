@@ -38,8 +38,16 @@ const privateRoutes: RouteObject[] = [
     path: PATH.CUSTOMERSREGISTRATION,
   },
   {
-    element: <div>Short Inst</div>,
-    path: PATH.SHORTINSTRUCTIONS,
+    element: <div>Executors Registration</div>,
+    path: PATH.EXECUTORSREGISTRATION,
+  },
+  {
+    element: <div>Short Customers Inst</div>,
+    path: PATH.SHORTCUSTOMERSINSTRUCTION,
+  },
+  {
+    element: <div>Short Executors Inst</div>,
+    path: PATH.SHORTEXECUTORSINSTRUCTION,
   },
   {
     element: <div>Contacts</div>,
