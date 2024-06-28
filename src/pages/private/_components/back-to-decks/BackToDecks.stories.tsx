@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { StorybookDecorator } from '@/services/StorybookDecorator'
+import { StorybookDecorator } from '@/state/StorybookDecorator'
 
 import { BackToDecks } from './BackToDecks'
 
