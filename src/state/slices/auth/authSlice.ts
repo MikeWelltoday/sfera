@@ -9,7 +9,13 @@ export type AuthSlice = ReturnType<typeof slice.getInitialState>
 
 const slice = createAppSlice({
   initialState: {
-    me: {} as Me,
+    me: {
+      avatar: '',
+      email: 'blabla@gmail.com',
+      id: '12345',
+      name: 'User',
+      status: 'customer',
+    } as Me,
   },
   name: SlicesNames.authSlice,
 

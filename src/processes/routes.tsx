@@ -33,10 +33,6 @@ const publicRoutes: RouteObject[] = [
     element: <ForgotPasswordPage />,
     path: PATH.FORGOTPASSWORD,
   },
-  {
-    element: <MainPage />,
-    path: PATH.MAINPAGE,
-  },
 ]
 
 const privateRoutes: RouteObject[] = [
@@ -87,7 +83,10 @@ export const routes = createBrowserRouter([
         children: publicRoutes,
         element: <PublicRoutes />,
       },
-
+      {
+        element: <MainPage />,
+        path: PATH.MAINPAGE,
+      },
       {
         element: <Navigate replace to={PATH.MAINPAGE} />,
         path: PATH.INIT,
@@ -103,7 +102,7 @@ export function Router() {
 }
 
 //========================================================================================
-const isAuthenticated = false
+const isAuthenticated = true
 
 function PrivateRoutes() {
   return isAuthenticated ? <Outlet /> : <Navigate to={PATH.SIGNIN} />
