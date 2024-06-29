@@ -1,13 +1,14 @@
+import { useId } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { Button, Card, PATH, Typography } from '@/shared'
+import { Button, Card, Options, PATH, Typography } from '@/shared'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import s from './SignUp.module.scss'
 
 import { PasswordInput, TextField } from '../../_components'
 import { SignUpFormValues, authSchemes } from '../../validationSchemes'
-import { ModalFooter } from '../_components'
+import { ControlledRadioGroup, ModalFooter } from '../_components'
 
 type SingUpProps = {
   onSubmit: (data: SignUpFormValues) => void
@@ -23,9 +24,15 @@ export const SignUp = ({ onSubmit }: SingUpProps) => {
       confirmPassword: '',
       email: '',
       password: '',
+      status: 'customer',
     },
     resolver: zodResolver(authSchemes.signUp),
   })
+
+  const RadioOptions: Options[] = [
+    { id: useId(), label: 'Customer', value: 'customer' },
+    { id: useId(), label: 'Executor', value: 'executor' },
+  ]
 
   return (
     <Card className={s.singUpWrapper}>
@@ -38,6 +45,13 @@ export const SignUp = ({ onSubmit }: SingUpProps) => {
             label={'Email'}
             name={'email'}
             type={'email'}
+          />
+          <ControlledRadioGroup
+            className={s.radio}
+            control={control}
+            name={'status'}
+            options={RadioOptions}
+            radioName={'Your Status'}
           />
           <PasswordInput
             autoComplete={'new-password'}

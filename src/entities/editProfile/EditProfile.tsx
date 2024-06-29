@@ -37,7 +37,7 @@ export const EditProfile = () => {
 
       await dispatch(authActions.update({ avatar: newImageURL }))
 
-      //URL.revokeObjectURL(newImageURL)
+      // URL.revokeObjectURL(newImageURL)
 
       //** to clean ref to load img with the same name once more  */
       if (fileInputRef.current) {

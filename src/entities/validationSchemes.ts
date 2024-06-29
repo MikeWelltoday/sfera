@@ -18,6 +18,7 @@ const signUp = z
     confirmPassword: z.string().trim(),
     email,
     password,
+    status: z.any(),
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Passwords do not match',

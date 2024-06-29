@@ -1,12 +1,15 @@
-import { SignUp, SignUpFormValues } from '@/entities'
+import {  SignUp, SignUpFormValues } from "@/entities";
 import {  Page } from "@/shared";
+import { authActions } from "@/state/slices/auth/authSlice";
+import { useAppDispatch } from "@/state/store";
 
 export const SignUpPage = () => {
 
-  function onSubmitHandler({ email, password }: SignUpFormValues) {
-    console.log(email);
-    console.log(password);
-  }
+  const dispatch = useAppDispatch()
+
+  function onSubmitHandler(data: SignUpFormValues) {
+    dispatch(authActions.register({...data}))
+      }
 
   return (
       <Page mt={'100px'}>

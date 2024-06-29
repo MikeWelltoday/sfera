@@ -5,7 +5,7 @@ export type Me = {
   email: string
   id: string
   name: string
-  status: userStatus
+  status?: userStatus
 }
 
 export type LoginArgs = {
@@ -14,4 +14,5 @@ export type LoginArgs = {
   rememberMe?: boolean
 }
 
-export type RegisterArgs = Omit<LoginArgs, 'rememberMe'> & Pick<Me, 'status'>
+export type RegisterArgs = { confirmPassword: string } & Omit<LoginArgs, 'rememberMe'> &
+  Pick<Me, 'status'>

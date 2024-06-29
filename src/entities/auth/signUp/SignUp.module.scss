@@ -19,3 +19,12 @@
 .singUpHeader {
   align-self: center;
 }
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--color-dark-100);
+}

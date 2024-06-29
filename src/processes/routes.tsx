@@ -64,6 +64,7 @@ const privateRoutes: RouteObject[] = [
     element: <ProfilePage />,
     path: PATH.PROFILE,
   },
+
   {
     element: <div>3D - shop decisions</div>,
     path: PATH.SHOPDECISIONS,
@@ -102,7 +103,7 @@ export function Router() {
 }
 
 //========================================================================================
-const isAuthenticated = true
+const isAuthenticated = false
 
 function PrivateRoutes() {
   return isAuthenticated ? <Outlet /> : <Navigate to={PATH.SIGNIN} />

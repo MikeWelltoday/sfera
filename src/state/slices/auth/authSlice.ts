@@ -9,13 +9,7 @@ export type AuthSlice = ReturnType<typeof slice.getInitialState>
 
 const slice = createAppSlice({
   initialState: {
-    me: {
-      avatar: '',
-      email: 'blabla@gmail.com',
-      id: '12345',
-      name: 'User',
-      status: 'customer',
-    } as Me,
+    me: {} as Me,
   },
   name: SlicesNames.authSlice,
 
@@ -57,6 +51,7 @@ const slice = createAppSlice({
 
             return res as Me
           } catch (error) {
+            dispatch(appActions.setInitialization({ isInitialized: true }))
             console.log('🟢 authSlice__me__rejected')
 
             return thunkAPI.rejectWithValue(null)
