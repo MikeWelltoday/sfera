@@ -18,13 +18,13 @@ const slice = createAppSlice({
         state.status = 'loading'
       })
       .addMatcher(isFulfilled, (state, action: any) => {
-        if (action.type === authActions.me.pending.type) {
+        if (action.type === authActions.me.fulfilled.type) {
           return
         }
         state.status = 'idle'
       })
       .addMatcher(isRejected, (state, action: any) => {
-        if (action.type === authActions.me.pending.type) {
+        if (action.type === authActions.me.rejected.type) {
           return
         }
         state.status = 'idle'
