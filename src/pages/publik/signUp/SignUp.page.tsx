@@ -1,13 +1,19 @@
+import { useNavigate } from 'react-router-dom'
+
 import { SignUp, SignUpFormValues } from '@/entities'
-import { Page } from '@/shared'
+import { PATH, Page } from '@/shared'
 import { authActions } from '@/state/slices/auth/authSlice'
 import { useAppDispatch } from '@/state/store'
 
 export const SignUpPage = () => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
-  function onSubmitHandler(data: SignUpFormValues) {
-    dispatch(authActions.register({ ...data }))
+  async function onSubmitHandler(data: SignUpFormValues) {
+    try {
+      await dispatch(authActions.register({ ...data }))
+      navigate(PATH.SIGNIN)
+    } catch (error) {}
   }
 
   return (

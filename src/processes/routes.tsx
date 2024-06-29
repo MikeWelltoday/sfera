@@ -110,6 +110,8 @@ function PrivateRoutes() {
 
   const isAuthenticated = refreshToken && accessToken
 
+  console.log('PrivateRoutes', isAuthenticated)
+
   return isAuthenticated ? <Outlet /> : <Navigate to={PATH.SIGNIN} />
 }
 

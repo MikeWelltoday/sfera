@@ -26,7 +26,7 @@ export const rtkNotificationsHandler: Middleware =
 
     if (isFulfilled(action)) {
       switch (action.type) {
-        case authActions.me.fulfilled.type:
+        case authActions.login.fulfilled.type:
           toast.success('Добро пожаловать')
           break
 

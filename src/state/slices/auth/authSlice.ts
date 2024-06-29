@@ -1,14 +1,13 @@
 import { authApi } from '../../API/auth.api'
-import { AppDispatch } from '../../store'
 import { createAppSlice } from '../../tools/createAppSlice'
 import { SlicesNames } from '../../tools/slicesNames'
-import { appActions } from '../app/appSlice'
 import { LoginArgs, Me, RegisterArgs } from './authSlice.types'
 
 export type AuthSlice = ReturnType<typeof slice.getInitialState>
 
 const slice = createAppSlice({
   initialState: {
+    isAuthenticated: false,
     me: {} as Me,
   },
   name: SlicesNames.authSlice,
@@ -22,36 +21,42 @@ const slice = createAppSlice({
             await authApi.login(args)
 
             localStorage.setItem('accessToken', 'accessToken')
-            localStorage.setItem('freshToken', 'freshToken')
+            localStorage.setItem('refreshToken', 'refreshToken')
+
             console.log('🟣 authSlice__login__fulfilled')
           } catch (error) {
             console.log('🟣 authSlice__login__rejected')
 
             return thunkAPI.rejectWithValue(null)
           }
+        },
+        {
+          fulfilled: state => {
+            state.isAuthenticated = true
+          },
+          rejected: state => {
+            state.isAuthenticated = false
+          },
         }
       ),
 
       logout: creators.reducer((state, _) => {
         localStorage.removeItem('accessToken')
-        localStorage.removeItem('freshToken')
+        localStorage.removeItem('refreshToken')
         state.me = {} as Me
+        state.isAuthenticated = false
       }),
 
       me: creators.asyncThunk<Me, undefined, { rejectValue: null }>(
         async (_, thunkAPI) => {
-          const dispatch = thunkAPI.dispatch as AppDispatch
-
           try {
             console.log('🟢 authSlice__me__pending')
             const res = await authApi.me()
 
             console.log('🟢 authSlice__me__fulfilled')
-            dispatch(appActions.setInitialization({ isInitialized: true }))
 
             return res as Me
           } catch (error) {
-            dispatch(appActions.setInitialization({ isInitialized: true }))
             console.log('🟢 authSlice__me__rejected')
 
             return thunkAPI.rejectWithValue(null)
@@ -105,6 +110,7 @@ const slice = createAppSlice({
   },
 
   selectors: {
+    isAuthenticated: state => state.isAuthenticated,
     me: state => state.me,
   },
 })

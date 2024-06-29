@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 import { appSelectors } from '@/state/slices/app/appSlice'
-import { authActions } from '@/state/slices/auth/authSlice'
+import { authActions, authSelectors } from '@/state/slices/auth/authSlice'
 import { useAppDispatch } from '@/state/store'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -15,13 +15,13 @@ import { InitLoader, LineLoader, PageHeader } from './_components'
 
 export const Layout = () => {
   const dispatch = useAppDispatch()
+  const isInitialized = useSelector(appSelectors.isInitialized)
+  const isLineLoading = useSelector(appSelectors.status)
+  const isAuthenticated = useSelector(authSelectors.isAuthenticated)
 
   useEffect(() => {
     dispatch(authActions.me())
-  }, [])
-
-  const isInitialized = useSelector(appSelectors.isInitialized)
-  const isLineLoading = useSelector(appSelectors.status)
+  }, [dispatch, isAuthenticated])
 
   return (
     <div className={s.layout}>

@@ -3,9 +3,16 @@ import avatar from './assets/avatar.png'
 import { randomTiming } from './randomTiming.tool'
 
 function me() {
-  return new Promise(res => {
+  return new Promise((res, rej) => {
     setTimeout(() => {
-      res({ avatar: avatar, email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
+      const refreshToken = localStorage.getItem('refreshToken')
+      const accessToken = localStorage.getItem('accessToken')
+
+      if (refreshToken && accessToken) {
+        res({ avatar: avatar, email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
+      } else {
+        rej()
+      }
     }, randomTiming() * 2)
   })
 }
@@ -16,7 +23,7 @@ function login(args: LoginArgs) {
       if (args.email === 'admin@yandex.ru' && args.password === 'admin') {
         res(true)
       } else {
-        rej(false)
+        rej()
       }
     }, randomTiming())
   })

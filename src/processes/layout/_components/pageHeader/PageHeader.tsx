@@ -2,7 +2,6 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { DropdownProfile } from '@/processes/layout/_components'
 import { Button, PATH, Typography } from '@/shared'
 import { authActions, authSelectors } from '@/state/slices/auth/authSlice'
 import { useAppDispatch } from '@/state/store'
@@ -10,6 +9,7 @@ import { useAppDispatch } from '@/state/store'
 import s from './PageHeader.module.scss'
 
 import logo from './Logo.png'
+import { DropdownProfile } from './dropdownProfile/DropdownProfile'
 
 type PageHeaderProps = {} & ComponentPropsWithoutRef<'header'>
 
@@ -17,11 +17,9 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>((_, 
   const dispatch = useAppDispatch()
   const me = useSelector(authSelectors.me)
 
-  console.log(me)
-  const logOutHandler = () => {
-    dispatch(authActions.logout())
-  }
-  const decider = true
+  const logOutHandler = () => dispatch(authActions.logout())
+
+  const decider = me.id
 
   return (
     <header ref={ref}>
