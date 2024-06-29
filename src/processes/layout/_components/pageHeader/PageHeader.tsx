@@ -1,20 +1,27 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { DropdownProfile } from '@/processes/layout/_components'
 import { Button, PATH, Typography } from '@/shared'
+import { authActions, authSelectors } from '@/state/slices/auth/authSlice'
+import { useAppDispatch } from '@/state/store'
 
 import s from './PageHeader.module.scss'
 
 import logo from './Logo.png'
-import avatar from './avatar.png'
 
-type PageHeaderProps = { decider: boolean } & ComponentPropsWithoutRef<'header'>
+type PageHeaderProps = {} & ComponentPropsWithoutRef<'header'>
 
-export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ decider }, ref) => {
-  const logoutHandler = () => {
-    console.log('LogOut')
+export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>((_, ref) => {
+  const dispatch = useAppDispatch()
+  const me = useSelector(authSelectors.me)
+
+  console.log(me)
+  const logOutHandler = () => {
+    dispatch(authActions.logout())
   }
+  const decider = true
 
   return (
     <header ref={ref}>
@@ -41,14 +48,14 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>(({ d
         {decider ? (
           <div className={s.profileInfo}>
             <Link to={PATH.PROFILE}>
-              <Typography.Subtitle1>Profile Name</Typography.Subtitle1>
+              <Typography.Subtitle1>{me.name}</Typography.Subtitle1>
             </Link>
             <DropdownProfile
-              email={'user@yandex.com'}
-              logout={logoutHandler}
-              name={'User'}
-              photo={avatar}
-              photoDescription={`User - avatar`}
+              email={me.email}
+              logout={logOutHandler}
+              name={me.name}
+              photo={me.avatar}
+              photoDescription={`${me.name} - avatar`}
             />
           </div>
         ) : (

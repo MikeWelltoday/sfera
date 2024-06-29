@@ -1,21 +1,33 @@
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
+
+import { appSelectors } from '@/state/slices/app/appSlice'
+import { authActions } from '@/state/slices/auth/authSlice'
+import { useAppDispatch } from '@/state/store'
 
 import 'react-toastify/dist/ReactToastify.css'
 
 import s from './Layout.module.scss'
 
-import { PageHeader } from './_components'
+import { InitLoader, PageHeader } from './_components'
 
 export const Layout = () => {
-  const decider = true
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(authActions.me())
+  }, [])
+
+  const isInitialized = useSelector(appSelectors.isInitialized)
 
   return (
     <div className={s.layout}>
-      <PageHeader decider={decider} />
-      <main>
-        <Outlet />
-      </main>
+      <PageHeader />
+
+      <main>{isInitialized ? <Outlet /> : <InitLoader />}</main>
+
       <ToastContainer
         autoClose={5000}
         closeOnClick

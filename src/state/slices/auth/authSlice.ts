@@ -51,6 +51,7 @@ const slice = createAppSlice({
 
             return res as Me
           } catch (error) {
+            dispatch(appActions.setInitialization({ isInitialized: true }))
             console.log('🟢 authSlice__me__rejected')
 
             return thunkAPI.rejectWithValue(null)

@@ -5,7 +5,7 @@ function me() {
   return new Promise(res => {
     setTimeout(() => {
       // TODO добавить сюда аватар => можно положить файл в эту папку
-      res({ avatar: 'avatar', email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
+      res({ avatar: '', email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
     }, randomTiming() * 2)
   })
 }

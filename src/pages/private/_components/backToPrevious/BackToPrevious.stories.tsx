@@ -2,20 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { StorybookDecorator } from '@/state/StorybookDecorator'
 
-import { BackToDecks } from './BackToDecks'
+import { BackToPrevious } from './BackToPrevious'
 
 const meta = {
   argTypes: {},
-  component: BackToDecks,
+  component: BackToPrevious,
   decorators: [StorybookDecorator],
   tags: ['autodocs'],
-  title: '🟣Pages/private/components/BackToDecks',
-} satisfies Meta<typeof BackToDecks>
+  title: '🟣Pages/private/components/BackToPrevious',
+} satisfies Meta<typeof BackToPrevious>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultBackToDecks: Story = {
+// ===========================================================================
+export const DefaultBackToPrevious: Story = {
   args: {
     title: 'Back to Decks List',
   },

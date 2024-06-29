@@ -33,10 +33,6 @@ const publicRoutes: RouteObject[] = [
     element: <ForgotPasswordPage />,
     path: PATH.FORGOTPASSWORD,
   },
-  {
-    element: <MainPage />,
-    path: PATH.MAINPAGE,
-  },
 ]
 
 const privateRoutes: RouteObject[] = [
@@ -68,6 +64,7 @@ const privateRoutes: RouteObject[] = [
     element: <ProfilePage />,
     path: PATH.PROFILE,
   },
+
   {
     element: <div>3D - shop decisions</div>,
     path: PATH.SHOPDECISIONS,
@@ -87,7 +84,10 @@ export const routes = createBrowserRouter([
         children: publicRoutes,
         element: <PublicRoutes />,
       },
-
+      {
+        element: <MainPage />,
+        path: PATH.MAINPAGE,
+      },
       {
         element: <Navigate replace to={PATH.MAINPAGE} />,
         path: PATH.INIT,
