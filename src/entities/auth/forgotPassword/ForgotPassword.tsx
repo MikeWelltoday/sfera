@@ -29,27 +29,24 @@ export const ForgotPassword = ({ onSubmit }: ForgotPasswordProps) => {
     <Card className={s.forgotPasswordWrapper}>
       <form className={s.form} noValidate onSubmit={handleSubmit(onSubmit)}>
         <div className={s.inputWrapper}>
-          <Typography.H1 className={s.forgotPasswordHeader}>Forgot your password?</Typography.H1>
+          <Typography.H1 className={s.forgotPasswordHeader}>Забыли пароль?</Typography.H1>
           <TextField
             autoComplete={'email'}
             control={control}
-            label={'Email'}
+            label={'Почта'}
             name={'email'}
             type={'email'}
           />
           <Typography.Body2 className={s.forgotPasswordText}>
-            Enter your email address and we will send you further instructions
+            Введите вашу адрес электронной почты и мы пришлем вам инструкции по восстановлению
+            пароля.
           </Typography.Body2>
         </div>
         <Button disabled={isSubmitting} fullWidth type={'submit'} variant={'primary'}>
-          Send Instructions
+          Отправить инструкцию
         </Button>
       </form>
-      <ModalFooter
-        buttonChildren={'Try logging in'}
-        footerText={'Did you remember your password?'}
-        linkPath={'/sign-in'}
-      />
+      <ModalFooter buttonChildren={'Вход'} footerText={'Помните пароль?'} linkPath={'/sign-in'} />
     </Card>
   )
 }

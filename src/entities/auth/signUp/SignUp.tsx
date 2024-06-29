@@ -30,19 +30,19 @@ export const SignUp = ({ onSubmit }: SingUpProps) => {
   })
 
   const RadioOptions: Options[] = [
-    { id: useId(), label: 'Customer', value: 'customer' },
-    { id: useId(), label: 'Executor', value: 'executor' },
+    { id: useId(), label: 'Заказчик', value: 'customer' },
+    { id: useId(), label: 'Исполнитель', value: 'executor' },
   ]
 
   return (
     <Card className={s.singUpWrapper}>
       <form className={s.form} noValidate onSubmit={handleSubmit(onSubmit)}>
         <div className={s.inputsWrapper}>
-          <Typography.H1 className={s.singUpHeader}>Sing Up</Typography.H1>
+          <Typography.H1 className={s.singUpHeader}>Регистрация</Typography.H1>
           <TextField
             autoComplete={'email'}
             control={control}
-            label={'Email'}
+            label={'Почта'}
             name={'email'}
             type={'email'}
           />
@@ -51,29 +51,28 @@ export const SignUp = ({ onSubmit }: SingUpProps) => {
             control={control}
             name={'status'}
             options={RadioOptions}
-            radioName={'Your Status'}
+            radioName={'Направление'}
           />
           <PasswordInput
             autoComplete={'new-password'}
             control={control}
-            label={'Password'}
+            label={'Пароль'}
             name={'password'}
           />
           <PasswordInput
             autoComplete={'new-password'}
             control={control}
-            label={'confirmPassword'}
+            label={'Подтверждение пароля'}
             name={'confirmPassword'}
-            placeholder={'Confirm Password'}
           />
         </div>
         <Button disabled={isSubmitting} fullWidth type={'submit'} variant={'primary'}>
-          Sing Up
+          Зарегистрироваться
         </Button>
       </form>
       <ModalFooter
-        buttonChildren={'Sing In'}
-        footerText={'Already have an account?'}
+        buttonChildren={'Войти'}
+        footerText={'Уже имеете аккаунт?'}
         linkPath={PATH.SIGNIN}
       />
     </Card>

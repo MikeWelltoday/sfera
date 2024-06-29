@@ -40,14 +40,14 @@ export const DropdownProfile = ({
       <Dropdown.Item>
         <Link className={s.iconTextLink} onClick={() => setIsOpen(false)} to={PATH.PROFILE}>
           <Icon iconId={'personOutline'} />
-          <Typography.Caption>My profile</Typography.Caption>
+          <Typography.Caption>Профиль</Typography.Caption>
         </Link>
       </Dropdown.Item>
       <Dropdown.Separator />
       <Dropdown.Item onClick={logout}>
         <Link className={s.iconTextLink} to={PATH.SIGNIN}>
           <Icon iconId={'logOut'} />
-          <Typography.Caption>Sign out</Typography.Caption>
+          <Typography.Caption>Выход</Typography.Caption>
         </Link>
       </Dropdown.Item>
     </Dropdown.Root>

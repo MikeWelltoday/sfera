@@ -58,7 +58,7 @@ export const PageHeader = forwardRef<ElementRef<'header'>, PageHeaderProps>((_, 
           </div>
         ) : (
           <Button as={Link} to={PATH.SIGNIN} variant={'primary'}>
-            Sign In
+            Войти
           </Button>
         )}
       </div>

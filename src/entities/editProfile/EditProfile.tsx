@@ -51,7 +51,7 @@ export const EditProfile = () => {
 
   return (
     <Card className={s.editProfile}>
-      <Typography.H1>Personal Information</Typography.H1>
+      <Typography.H1>Профиль</Typography.H1>
       <div className={s.avatarContainer}>
         <HeaderAvatar
           name={me.name}

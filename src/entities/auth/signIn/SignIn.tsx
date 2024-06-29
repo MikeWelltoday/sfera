@@ -32,35 +32,35 @@ export const SignIn = ({ onSubmit }: SingInProps) => {
     <Card className={s.signIn}>
       <form className={s.form} noValidate onSubmit={handleSubmit(onSubmit)}>
         <div className={s.inputsWrapper}>
-          <Typography.H1>Sing In</Typography.H1>
+          <Typography.H1>Войти</Typography.H1>
           <TextField
             autoComplete={'email'}
             control={control}
-            label={'Email'}
+            label={'Почта'}
             name={'email'}
             type={'email'}
           />
           <PasswordInput
             autoComplete={'password'}
             control={control}
-            label={'Password'}
+            label={'Пароль'}
             name={'password'}
           />
           <ControlledCheckbox control={control} name={'rememberMe'}>
-            Remember me
+            Запомнить
           </ControlledCheckbox>
 
           <Typography.Body2 as={Link} className={s.forgotPasswordBox} to={PATH.FORGOTPASSWORD}>
-            Forgot Password?
+            Забыли пароль?
           </Typography.Body2>
         </div>
         <Button disabled={isSubmitting} fullWidth type={'submit'} variant={'primary'}>
-          Sing In
+          Вход
         </Button>
       </form>
       <ModalFooter
-        buttonChildren={'Sing Up'}
-        footerText={"Don't have an account?"}
+        buttonChildren={'Зарегистрироваться'}
+        footerText={'Не имеете аккаунта?'}
         linkPath={PATH.SIGNUP}
       />
     </Card>

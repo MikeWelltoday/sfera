@@ -1,5 +1,5 @@
 import { LoginArgs, Me, RegisterArgs } from '../slices/auth/authSlice.types'
-import avatar from './assets/avatar.png'
+import avatar from './assets/Sergey2.png'
 import { randomTiming } from './randomTiming.tool'
 
 function me() {

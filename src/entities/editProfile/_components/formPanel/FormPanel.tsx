@@ -26,9 +26,9 @@ export const FormPanel = ({ name, onSubmit }: FormPanelProps) => {
 
   return (
     <form className={s.formPanel} noValidate onSubmit={handleSubmit(onSubmit)}>
-      <TextField control={control} label={'NickName'} name={'name'} />
+      <TextField control={control} label={'Имя'} name={'name'} />
       <Button disabled={isSubmitting} fullWidth type={'submit'} variant={'primary'}>
-        Save Changes
+        Сохранить изменения
       </Button>
     </form>
   )

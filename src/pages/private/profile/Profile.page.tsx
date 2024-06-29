@@ -7,7 +7,7 @@ import s from './Profile.module.scss'
 export const ProfilePage = () => {
   return (
     <Page className={s.wrapper}>
-      <BackToPrevious className={s.backToPrevious} title={'Back to Previous List'} />
+      <BackToPrevious className={s.backToPrevious} title={'Предыдущая страница'} />
       <EditProfile />
     </Page>
   )

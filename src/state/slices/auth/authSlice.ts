@@ -44,7 +44,6 @@ const slice = createAppSlice({
         localStorage.removeItem('accessToken')
         localStorage.removeItem('refreshToken')
         state.me = {} as Me
-        state.isAuthenticated = false
       }),
 
       me: creators.asyncThunk<Me, undefined, { rejectValue: null }>(
