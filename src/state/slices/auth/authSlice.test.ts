@@ -5,6 +5,7 @@ let startState: AuthSlice
 
 beforeEach(() => {
   startState = {
+    isAuthenticated: false,
     me: {} as Me,
   }
 })

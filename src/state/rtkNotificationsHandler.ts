@@ -1,11 +1,12 @@
 import { toast } from 'react-toastify'
 
-import { Middleware, MiddlewareAPI, isFulfilled, isRejected } from '@reduxjs/toolkit'
+import { Middleware, isFulfilled, isRejected } from '@reduxjs/toolkit'
 
 import { authActions } from './slices/auth/authSlice'
 
 export const rtkNotificationsHandler: Middleware =
-  (api: MiddlewareAPI) => next => (action: any) => {
+  // (api: MiddlewareAPI) => next => (action: any) => {
+  () => next => (action: any) => {
     if (isRejected(action)) {
       switch (action.type) {
         case authActions.login.rejected.type:
