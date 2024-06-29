@@ -1,9 +1,8 @@
 import { ChangeEvent, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { EditProfileFormValues } from '@/entities/validationSchemes'
-import { HeaderAvatar, IconButton, Typography } from '@/shared'
-import { Card } from '@/shared/ui/card/Card'
+import { EditProfileFormValues } from '@/entities'
+import { Card, HeaderAvatar, IconButton, Typography } from '@/shared'
 import { authActions, authSelectors } from '@/state/slices/auth/authSlice'
 import { useAppDispatch } from '@/state/store'
 

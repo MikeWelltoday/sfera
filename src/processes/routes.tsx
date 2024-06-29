@@ -103,12 +103,21 @@ export function Router() {
 }
 
 //========================================================================================
-const isAuthenticated = false
 
 function PrivateRoutes() {
+  const refreshToken = localStorage.getItem('refreshToken')
+  const accessToken = localStorage.getItem('accessToken')
+
+  const isAuthenticated = refreshToken && accessToken
+
   return isAuthenticated ? <Outlet /> : <Navigate to={PATH.SIGNIN} />
 }
 
 function PublicRoutes() {
+  const refreshToken = localStorage.getItem('refreshToken')
+  const accessToken = localStorage.getItem('accessToken')
+
+  const isAuthenticated = refreshToken && accessToken
+
   return isAuthenticated ? <Navigate to={PATH.MAINPAGE} /> : <Outlet />
 }

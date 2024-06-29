@@ -1,11 +1,11 @@
 import { LoginArgs, Me, RegisterArgs } from '../slices/auth/authSlice.types'
+import avatar from './assets/avatar.png'
 import { randomTiming } from './randomTiming.tool'
 
 function me() {
   return new Promise(res => {
     setTimeout(() => {
-      // TODO добавить сюда аватар => можно положить файл в эту папку
-      res({ avatar: '', email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
+      res({ avatar: avatar, email: 'admin@yandex.ru', id: 'admin', name: 'admin' } as Me)
     }, randomTiming() * 2)
   })
 }

@@ -14,6 +14,7 @@ export type {
   CardFormValues,
   CreateNewPasswordFormValues,
   DeckFormValues,
+  EditProfileFormValues,
   ForgotPasswordFormValues,
   SignInFormValues,
   SignUpFormValues,

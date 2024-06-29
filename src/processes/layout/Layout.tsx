@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import s from './Layout.module.scss'
 
-import { InitLoader, PageHeader } from './_components'
+import { InitLoader, LineLoader, PageHeader } from './_components'
 
 export const Layout = () => {
   const dispatch = useAppDispatch()
@@ -21,11 +21,12 @@ export const Layout = () => {
   }, [])
 
   const isInitialized = useSelector(appSelectors.isInitialized)
+  const isLineLoading = useSelector(appSelectors.status)
 
   return (
     <div className={s.layout}>
       <PageHeader />
-
+      {isLineLoading === 'loading' && <LineLoader />}
       <main>{isInitialized ? <Outlet /> : <InitLoader />}</main>
 
       <ToastContainer
