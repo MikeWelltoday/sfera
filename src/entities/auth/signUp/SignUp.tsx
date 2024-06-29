@@ -6,9 +6,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import s from './SignUp.module.scss'
 
-import { PasswordInput, TextField } from '../../_components'
+import { ControlledRadioGroup, PasswordInput, TextField } from '../../_components'
 import { SignUpFormValues, authSchemes } from '../../validationSchemes'
-import { ControlledRadioGroup, ModalFooter } from '../_components'
+import { ModalFooter } from '../_components'
 
 type SingUpProps = {
   onSubmit: (data: SignUpFormValues) => void

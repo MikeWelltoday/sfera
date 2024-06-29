@@ -28,7 +28,7 @@ export const RadioGroup = forwardRef<ElementRef<typeof Radio.Root>, RadioGroupPr
         ref={ref}
         value={value}
       >
-        <Typography.Body2>{radioName}:</Typography.Body2>
+        <Typography.Body2>{`${radioName}:`}</Typography.Body2>
         {options.map(el => {
           return (
             <div className={s.radioItemWrapper} key={el.id}>

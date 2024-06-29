@@ -16,13 +16,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const SignUpPageHeaderStory: Story = {
-  args: {
-    decider: true,
-  },
-}
-
-export const NotSignUpPageHeaderStory: Story = {
-  args: {
-    decider: false,
-  },
+  args: {},
 }

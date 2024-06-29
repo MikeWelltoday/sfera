@@ -18,9 +18,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+// ===========================================================================
 export const DefaultRadioGroup: Story = {
   args: {
     options,
+    radioName: 'Name',
   },
 }
 
@@ -28,5 +30,6 @@ export const DisabledRadioGroup: Story = {
   args: {
     disabled: true,
     options,
+    radioName: 'Name',
   },
 }

@@ -7,7 +7,7 @@ type BackToDecksProps = {
   title: string
 }
 
-export const BackToDecks = ({ className, title }: BackToDecksProps) => {
+export const BackToPrevious = ({ className, title }: BackToDecksProps) => {
   const navigate = useNavigate()
 
   return (
