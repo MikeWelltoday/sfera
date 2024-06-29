@@ -13,7 +13,7 @@ function me() {
       } else {
         rej()
       }
-    }, randomTiming() * 2)
+    }, randomTiming())
   })
 }
 
