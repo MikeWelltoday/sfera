@@ -1,0 +1,58 @@
+.aboutUs {
+  background-color: #073b03;
+  width: 30%;
+
+  &:hover {
+    background-color: #136b0b;
+  }
+}
+
+.shortCustomersInstruction {
+  background-color: #098f80;
+  width: 50%;
+
+  &:hover {
+    background-color: #0ad2c1;
+  }
+}
+
+.customersRegistration {
+  background-color: #750cb2;
+  width: 50%;
+
+  &:hover {
+    background-color: #b10cde;
+  }
+}
+
+.shortExecutorsInstruction {
+  background-color: #447e07;
+  width: 60%;
+
+  &:hover {
+    background-color: #69cc07;
+  }
+}
+
+.executorsRegistration {
+  background-color: #8c2a07;
+  width: 60%;
+
+  &:hover {
+    background-color: #b73409;
+  }
+}
+
+.contacts {
+  background-color: #070d8f;
+  width: 30%;
+
+  &:hover {
+    background-color: #0c14c9;
+  }
+}
+
+.buttonText {
+  font-size: var(--font-size-xl);
+  text-transform: uppercase;
+}

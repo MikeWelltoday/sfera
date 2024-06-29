@@ -1,0 +1,16 @@
+export const PATH = {
+  ABOUTUS: '/about-us',
+  CONTACTS: '/contacts',
+  CUSTOMERSREGISTRATION: '/customers-registration',
+  ERRORPAGE: '/error404',
+  EXECUTORSREGISTRATION: '/executors-registration',
+  FORGOTPASSWORD: '/forgot-password',
+  INIT: '/',
+  MAINPAGE: '/main',
+  PROFILE: '/profile',
+  SHOPDECISIONS: '/shop-decisions',
+  SHORTCUSTOMERSINSTRUCTION: '/short-customers-instruction',
+  SHORTEXECUTORSINSTRUCTION: '/short-executors-instruction',
+  SIGNIN: '/sign-in',
+  SIGNUP: '/sign-up',
+} as const
