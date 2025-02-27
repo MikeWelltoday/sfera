@@ -7,9 +7,21 @@ import './styles/index.scss'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/700.css'
 
-import { registerSW } from 'virtual:pwa-register'
+// import { registerSW } from 'virtual:pwa-register'
+//
+// registerSW({ immediate: true })
 
-registerSW({ immediate: true })
+window.addEventListener('load', async () => {
+  if ('serviceWorker' in navigator) {
+    try {
+      const register = await navigator.serviceWorker.register('/sw.js')
+      console.log(register)
+      console.log('SW register success')
+    } catch (error) {
+      console.log('SW register failed')
+    }
+  }
+})
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
