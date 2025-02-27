@@ -1,7 +1,7 @@
-import { ReactNode, useId } from 'react'
+import { ReactNode, useEffect, useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Button, PATH, Page } from '@/shared'
+import { Button, Page, PATH } from '@/shared'
 
 import s from './Main.module.scss'
 
@@ -13,6 +13,22 @@ type MainButtonsData = {
 }
 
 export const MainPage = () => {
+  const [data, setData] = useState<any>()
+
+  useEffect(() => {
+    const fetchAPI = async () => {
+      try {
+        const response = await fetch('https://rickandmortyapi.com/api/character')
+        const result = await response.json()
+        setData(result)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    fetchAPI()
+  }, [])
+
   const mainButtonsData: MainButtonsData[] = [
     {
       Children: 'О нас',
@@ -54,6 +70,8 @@ export const MainPage = () => {
 
   return (
     <Page>
+      {data?.results?.map((item: any) => <span key={item?.id}>{item?.name}</span>)}
+
       {mainButtonsData.map(button => {
         return (
           <Button
