@@ -18,7 +18,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["node", "jest"],
+    "types": ["node", "jest", "vite-plugin-pwa/client"],
     "paths": {
       "@/*": ["./src/*"]
     }
