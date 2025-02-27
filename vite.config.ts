@@ -38,11 +38,16 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      workbox: { globPatterns: ['**/*{html,css,scss,js,ico,png,jpeg,webp,svg}'] },
+      workbox: { globPatterns: ['**/*.{js,css,html,ico,png,svg}'] },
       manifest: manifest,
     }),
   ],
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+  },
+  build: {
+    rollupOptions: {
+      external: ['workbox-window'],
+    },
   },
 })
